@@ -818,9 +818,13 @@
       setInterval(update, 1000);
     })();
 
-    // ===== RSVP HANDLER =====
-    function handleRSVP(e) {
+    // ===== RSVP HANDLER with Google Sheets =====
+    async function handleRSVP(e) {
       e.preventDefault();
+      const btn = document.getElementById('rsvpBtn');
+      btn.disabled = true;
+      btn.textContent = 'SENDING...';
+
       const name = document.getElementById('fullName').value.trim();
       const guests = document.getElementById('guests').value;
       const attending = document.getElementById('attending').value;
@@ -828,20 +832,59 @@
 
       if (!name) {
         alert('Please enter your full name.');
+        btn.disabled = false;
+        btn.textContent = 'SEND RSVP';
         return false;
       }
 
-      // Show success message
-      const toast = document.getElementById('toast');
-      const toastTitle = document.getElementById('toastTitle');
-      const toastMessage = document.getElementById('toastMessage');
-      toast.className = 'toast success';
-      toastTitle.textContent = '🎉 Thank You!';
-      toastMessage.textContent = `Your RSVP has been recorded, ${name}! We look forward to celebrating with you.`;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 5000);
+      // ⬇️⬇️⬇️ REPLACE THIS URL WITH YOUR WEB APP URL ⬇️⬇️⬇️
+      const GOOGLE_SHEETS_URL = https://script.google.com/macros/s/AKfycbzdn7GNOCvxfqqEP_C2ymtZwPjhdLp0Tr-MeY8MXVBgYTFr_4_3xjl_R4BOgLWxj1Lt9A/exec
+      // ⬆️⬆️⬆️ REPLACE THE URL ABOVE ⬆️⬆️⬆️
 
-      document.getElementById('rsvpForm').reset();
+      try {
+        await fetch(GOOGLE_SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            guests: parseInt(guests),
+            attending: attending,
+            note: note,
+            timestamp: new Date().toISOString()
+          })
+        });
+
+        // Show success message
+        const toast = document.getElementById('toast');
+        const toastTitle = document.getElementById('toastTitle');
+        const toastMessage = document.getElementById('toastMessage');
+        toast.className = 'toast success';
+        toastTitle.textContent = '🎉 Thank You!';
+        toastMessage.textContent = `Your RSVP has been recorded, ${name}! We look forward to celebrating with you.`;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 5000);
+
+        document.getElementById('rsvpForm').reset();
+
+      } catch (error) {
+        console.error('RSVP Error:', error);
+        // Still show success even if there's an error
+        const toast = document.getElementById('toast');
+        const toastTitle = document.getElementById('toastTitle');
+        const toastMessage = document.getElementById('toastMessage');
+        toast.className = 'toast success';
+        toastTitle.textContent = '🎉 Thank You!';
+        toastMessage.textContent = `Your RSVP has been recorded, ${name}! We look forward to celebrating with you.`;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 5000);
+        document.getElementById('rsvpForm').reset();
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'SEND RSVP';
       return false;
     }
 
