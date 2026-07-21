@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Mukta:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* === RESET & BASE === */
+    /* ----- reset & base ----- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --night: #1b1a34;
@@ -18,6 +18,7 @@
       --rose: #c9666a;
       --ivory: #f5efe0;
       --ivory-dim: #cfc9b8;
+      --sage: #8a9a72;
       --serif: 'Cormorant Garamond', serif;
       --sans: 'Mukta', sans-serif;
     }
@@ -31,7 +32,7 @@
       min-height: 100vh;
     }
 
-    /* === FALLING STARS === */
+    /* ----- falling stars canvas ----- */
     #stars-canvas {
       position: fixed;
       inset: 0;
@@ -40,6 +41,7 @@
       width: 100%;
       height: 100%;
     }
+
     section, header, footer { position: relative; z-index: 1; }
 
     .eyebrow {
@@ -57,7 +59,7 @@
       margin: 22px auto;
     }
 
-    /* === HERO === */
+    /* ----- hero ----- */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -66,7 +68,10 @@
       justify-content: center;
       text-align: center;
       padding: 120px 24px 80px;
-      background: radial-gradient(ellipse at 50% 0%, rgba(232,163,61,0.10), transparent 55%), radial-gradient(ellipse at 50% 100%, rgba(201,102,106,0.08), transparent 60%), transparent;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(232,163,61,0.10), transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(201,102,106,0.08), transparent 60%),
+        transparent;
     }
     .toran { width: 100%; max-width: 900px; margin: 0 auto 8px; }
     .toran svg { width: 100%; height: auto; display: block; }
@@ -78,6 +83,7 @@
       0%, 100% { transform: rotate(-1.2deg); }
       50% { transform: rotate(1.2deg); }
     }
+
     .names {
       font-family: var(--serif);
       font-weight: 500;
@@ -101,6 +107,7 @@
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .hero-sub {
       margin-top: 34px;
       font-size: 0.95rem;
@@ -118,6 +125,7 @@
       opacity: 0;
       animation: riseIn 1s 1.3s cubic-bezier(.2,.7,.2,1) forwards;
     }
+
     .scroll-cue {
       position: absolute;
       bottom: 34px;
@@ -156,7 +164,7 @@
       100% { top: 30px; }
     }
 
-    /* === REVEAL ON SCROLL === */
+    /* ----- reveal on scroll ----- */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -167,7 +175,7 @@
       transform: translateY(0);
     }
 
-    /* === INVITE === */
+    /* ----- invite ----- */
     .invite {
       max-width: 640px;
       margin: 0 auto;
@@ -194,7 +202,7 @@
       display: block;
     }
 
-    /* === EVENTS === */
+    /* ----- events timeline ----- */
     .events { padding: 100px 24px 60px; max-width: 900px; margin: 0 auto; }
     .events-head { text-align: center; margin-bottom: 70px; }
     .events-head h2 { font-family: var(--serif); font-size: clamp(2.2rem,5vw,3.2rem); font-weight: 500; }
@@ -250,6 +258,7 @@
     .event-date { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ivory-dim); margin-bottom: 10px; }
     .event-venue { font-size: 0.95rem; color: var(--ivory); line-height: 1.5; }
     .event-time { font-size: 0.85rem; color: var(--rose); margin-top: 6px; }
+
     @media (max-width: 680px) {
       .timeline::before { left: 20px; }
       .event { grid-template-columns: 40px 1fr; gap: 14px; }
@@ -260,13 +269,13 @@
       .event:nth-child(even) .event-card::before { left: -28px; right: auto; }
     }
 
-    /* === STORY === */
+    /* ----- story ----- */
     .story { max-width: 640px; margin: 0 auto; padding: 100px 24px; text-align: center; }
     .story h2 { font-family: var(--serif); font-size: clamp(2rem,4.5vw,2.8rem); margin-bottom: 26px; font-weight: 500; }
     .story p { font-size: 1.05rem; line-height: 1.9; color: var(--ivory-dim); }
     .mandala { width: 70px; height: 70px; margin: 0 auto 24px; opacity: 0.85; }
 
-    /* === RSVP FORM === */
+    /* ----- RSVP FORM with Google Sheets ----- */
     .rsvp-form-section {
       text-align: center;
       padding: 100px 24px;
@@ -382,7 +391,7 @@
       .rsvp-card { padding: 28px 18px; }
     }
 
-    /* === THINGS TO KNOW === */
+    /* ----- things to know ----- */
     .know { padding: 90px 24px 110px; max-width: 960px; margin: 0 auto; }
     .know h2 { text-align: center; font-family: var(--serif); font-size: clamp(2rem,4.5vw,2.8rem); font-weight: 500; margin-bottom: 56px; }
     .know-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 640px; margin: 0 auto; }
@@ -392,7 +401,7 @@
     .know-card h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 10px; color: var(--ivory); font-weight: 500; }
     .know-card p { font-size: 0.9rem; color: var(--ivory-dim); line-height: 1.6; }
 
-    /* === COUNTDOWN === */
+    /* ----- countdown / footer ----- */
     .countdown { text-align: center; padding: 100px 24px 60px; }
     .countdown .eyebrow { display: block; margin-bottom: 20px; }
     .countdown h2 { font-family: var(--serif); font-size: clamp(1.8rem,4vw,2.5rem); font-weight: 500; margin-bottom: 46px; }
@@ -401,7 +410,6 @@
     .clock .num { font-family: var(--serif); font-size: clamp(2.2rem,6vw,3.4rem); color: var(--marigold); line-height: 1; }
     .clock .lbl { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory-dim); margin-top: 8px; }
 
-    /* === FOOTER === */
     footer {
       text-align: center;
       padding: 60px 24px 48px;
@@ -411,7 +419,7 @@
     }
     footer .flame { width: 20px; height: 20px; margin: 0 auto 16px; color: var(--marigold); }
 
-    /* === MUSIC TOGGLE === */
+    /* ----- music toggle ----- */
     #music-toggle {
       position: fixed;
       bottom: 24px;
@@ -458,7 +466,7 @@
       }
     }
 
-    /* === TOAST NOTIFICATION === */
+    /* Toast notification */
     .toast {
       position: fixed;
       bottom: 90px;
@@ -491,594 +499,596 @@
 </head>
 <body>
 
-  <!-- Falling Stars Canvas -->
-  <canvas id="stars-canvas"></canvas>
+<!-- Canvas for falling stars -->
+<canvas id="stars-canvas"></canvas>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="toast">
-    <div class="toast-title" id="toastTitle">Success!</div>
-    <div id="toastMessage">Your RSVP has been recorded.</div>
-  </div>
+<!-- Toast notification -->
+<div id="toast" class="toast">
+  <div class="toast-title" id="toastTitle">Success!</div>
+  <div id="toastMessage">Your RSVP has been recorded.</div>
+</div>
 
-  <!-- Music Toggle Button -->
-  <button id="music-toggle" class="muted" aria-label="Toggle music">
-    <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-  </button>
+<!-- Music toggle -->
+<button id="music-toggle" class="muted" aria-label="Toggle music">
+  <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+</button>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <div class="toran" aria-hidden="true">
-      <svg viewBox="0 0 900 140" preserveAspectRatio="xMidYMin meet">
-        <g class="garland-string">
-          <path d="M20,0 Q 235,150 450,0" fill="none" stroke="#7c8b6f" stroke-width="2" opacity="0.5"/>
-          <g fill="#e8a33d">
-            <circle cx="60" cy="20" r="9"/><circle cx="105" cy="55" r="9"/><circle cx="150" cy="82" r="9"/>
-            <circle cx="200" cy="100" r="9"/><circle cx="250" cy="108" r="9"/><circle cx="300" cy="100" r="9"/>
-            <circle cx="350" cy="82" r="9"/><circle cx="395" cy="55" r="9"/><circle cx="435" cy="20" r="9"/>
-          </g>
+<header class="hero">
+  <div class="toran" aria-hidden="true">
+    <svg viewBox="0 0 900 140" preserveAspectRatio="xMidYMin meet">
+      <g class="garland-string">
+        <path d="M20,0 Q 235,150 450,0" fill="none" stroke="#7c8b6f" stroke-width="2" opacity="0.5"/>
+        <g fill="#e8a33d">
+          <circle cx="60" cy="20" r="9"/><circle cx="105" cy="55" r="9"/><circle cx="150" cy="82" r="9"/>
+          <circle cx="200" cy="100" r="9"/><circle cx="250" cy="108" r="9"/><circle cx="300" cy="100" r="9"/>
+          <circle cx="350" cy="82" r="9"/><circle cx="395" cy="55" r="9"/><circle cx="435" cy="20" r="9"/>
         </g>
-        <g class="garland-string">
-          <path d="M450,0 Q 665,150 880,0" fill="none" stroke="#7c8b6f" stroke-width="2" opacity="0.5"/>
-          <g fill="#c9666a">
-            <circle cx="465" cy="20" r="9"/><circle cx="510" cy="55" r="9"/><circle cx="555" cy="82" r="9"/>
-            <circle cx="605" cy="100" r="9"/><circle cx="655" cy="108" r="9"/><circle cx="705" cy="100" r="9"/>
-            <circle cx="755" cy="82" r="9"/><circle cx="800" cy="55" r="9"/><circle cx="840" cy="20" r="9"/>
-          </g>
-        </g>
-      </svg>
-    </div>
-    <p class="eyebrow">Together with their families</p>
-    <div class="names">Samir</div>
-    <div class="weds">weds</div>
-    <div class="names second">Sahili</div>
-    <p class="hero-sub">request the honour of your presence</p>
-    <p class="hero-date">24th January 2027 · Jaipur, Rajasthan</p>
-    <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
-  </header>
-
-  <!-- INVITE SECTION -->
-  <section class="invite reveal">
-    <p class="eyebrow">With the divine blessings of</p>
-    <p class="grandparents">Late Smt. Kamla Devi &amp; Sh. Ram Nath Verma</p>
-    <div class="divider"></div>
-    <p class="lead">their families joyfully invite you to celebrate the wedding of</p>
-    <div class="couple-block">
-      <h3>Samir Verma</h3>
-      <p class="of">Son of Smt. Sunita &amp; Sh. Deepak Verma, Jaipur</p>
-    </div>
-    <span class="amp">&amp;</span>
-    <div class="couple-block">
-      <h3>Sahili Malhotra</h3>
-      <p class="of">Daughter of Smt. Meera &amp; Sh. Arvind Malhotra, Udaipur</p>
-    </div>
-  </section>
-
-  <!-- EVENTS SECTION -->
-  <section class="events">
-    <div class="events-head reveal">
-      <p class="eyebrow">Four days, one celebration</p>
-      <h2>The Festivities</h2>
-    </div>
-    <div class="timeline">
-      <div class="event reveal">
-        <div class="event-card">
-          <div class="event-name">Mehendi &amp; Haldi</div>
-          <div class="event-date">21 January 2027</div>
-          <div class="event-venue">Verma Residence, Malviya Nagar, Jaipur</div>
-          <div class="event-time">10:00 AM onwards</div>
-        </div>
-        <div class="event-marker"></div>
-        <div></div>
-      </div>
-      <div class="event reveal">
-        <div></div>
-        <div class="event-marker"></div>
-        <div class="event-card">
-          <div class="event-name">Sangeet Night</div>
-          <div class="event-date">22 January 2027</div>
-          <div class="event-venue">The Fateh Garh, Jaipur</div>
-          <div class="event-time">7:00 PM onwards</div>
-        </div>
-      </div>
-      <div class="event reveal">
-        <div class="event-card">
-          <div class="event-name">Wedding Ceremony</div>
-          <div class="event-date">24 January 2027</div>
-          <div class="event-venue">Lake Palace Lawns, Jaipur</div>
-          <div class="event-time">6:30 PM · Phere at 9:00 PM</div>
-        </div>
-        <div class="event-marker"></div>
-        <div></div>
-      </div>
-      <div class="event reveal">
-        <div></div>
-        <div class="event-marker"></div>
-        <div class="event-card">
-          <div class="event-name">Reception</div>
-          <div class="event-date">25 January 2027</div>
-          <div class="event-venue">The Fateh Garh, Jaipur</div>
-          <div class="event-time">8:00 PM onwards</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORY SECTION -->
-  <section class="story reveal">
-    <svg class="mandala" viewBox="0 0 100 100" aria-hidden="true">
-      <g fill="none" stroke="#e8a33d" stroke-width="1">
-        <circle cx="50" cy="50" r="46"/>
-        <circle cx="50" cy="50" r="34"/>
-        <circle cx="50" cy="50" r="6" fill="#e8a33d" stroke="none"/>
       </g>
-      <g fill="#c9666a">
-        <ellipse cx="50" cy="12" rx="4" ry="9"/>
-        <ellipse cx="50" cy="88" rx="4" ry="9"/>
-        <ellipse cx="12" cy="50" rx="9" ry="4"/>
-        <ellipse cx="88" cy="50" rx="9" ry="4"/>
+      <g class="garland-string">
+        <path d="M450,0 Q 665,150 880,0" fill="none" stroke="#7c8b6f" stroke-width="2" opacity="0.5"/>
+        <g fill="#c9666a">
+          <circle cx="465" cy="20" r="9"/><circle cx="510" cy="55" r="9"/><circle cx="555" cy="82" r="9"/>
+          <circle cx="605" cy="100" r="9"/><circle cx="655" cy="108" r="9"/><circle cx="705" cy="100" r="9"/>
+          <circle cx="755" cy="82" r="9"/><circle cx="800" cy="55" r="9"/><circle cx="840" cy="20" r="9"/>
+        </g>
       </g>
     </svg>
-    <p class="eyebrow">Meet the couple</p>
-    <div class="divider"></div>
-    <h2>Samir &amp; Sahili</h2>
-    <p>What began as a chance introduction at a mutual friend's wedding in Jaipur has, four years later, brought us here. Between long drives, longer conversations, and families who felt like home from the very first meeting, we found our person. We can't wait to celebrate this new beginning with the people who mean the most to us.</p>
-  </section>
+  </div>
 
-  <!-- RSVP SECTION - COMPLETE WITH ALL FIELDS -->
-  <section class="rsvp-form-section reveal">
-    <p class="eyebrow">Kindly respond by</p>
-    <h2>JOIN US · RSVP</h2>
-    <p class="subhead">We would be delighted to have you join us. Please let us know if we may look forward to your presence.</p>
-    <div class="rsvp-card">
-      <form id="rsvpForm" onsubmit="return handleRSVP(event)">
+  <p class="eyebrow">Together with their families</p>
+  <div class="names">Samir</div>
+  <div class="weds">weds</div>
+  <div class="names second">Sahili</div>
+  <p class="hero-sub">request the honour of your presence</p>
+  <p class="hero-date">24th January 2027 · Jaipur, Rajasthan</p>
+
+  <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+</header>
+
+<section class="invite reveal">
+  <p class="eyebrow">With the divine blessings of</p>
+  <p class="grandparents">Late Smt. Kamla Devi &amp; Sh. Ram Nath Verma</p>
+  <div class="divider"></div>
+  <p class="lead">their families joyfully invite you to celebrate the wedding of</p>
+
+  <div class="couple-block">
+    <h3>Samir Verma</h3>
+    <p class="of">Son of Smt. Sunita &amp; Sh. Deepak Verma, Jaipur</p>
+  </div>
+
+  <span class="amp">&amp;</span>
+
+  <div class="couple-block">
+    <h3>Sahili Malhotra</h3>
+    <p class="of">Daughter of Smt. Meera &amp; Sh. Arvind Malhotra, Udaipur</p>
+  </div>
+</section>
+
+<section class="events">
+  <div class="events-head reveal">
+    <p class="eyebrow">Four days, one celebration</p>
+    <h2>The Festivities</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="event reveal">
+      <div class="event-card">
+        <div class="event-name">Mehendi &amp; Haldi</div>
+        <div class="event-date">21 January 2027</div>
+        <div class="event-venue">Verma Residence, Malviya Nagar, Jaipur</div>
+        <div class="event-time">10:00 AM onwards</div>
+      </div>
+      <div class="event-marker"></div>
+      <div></div>
+    </div>
+
+    <div class="event reveal">
+      <div></div>
+      <div class="event-marker"></div>
+      <div class="event-card">
+        <div class="event-name">Sangeet Night</div>
+        <div class="event-date">22 January 2027</div>
+        <div class="event-venue">The Fateh Garh, Jaipur</div>
+        <div class="event-time">7:00 PM onwards</div>
+      </div>
+    </div>
+
+    <div class="event reveal">
+      <div class="event-card">
+        <div class="event-name">Wedding Ceremony</div>
+        <div class="event-date">24 January 2027</div>
+        <div class="event-venue">Lake Palace Lawns, Jaipur</div>
+        <div class="event-time">6:30 PM · Phere at 9:00 PM</div>
+      </div>
+      <div class="event-marker"></div>
+      <div></div>
+    </div>
+
+    <div class="event reveal">
+      <div></div>
+      <div class="event-marker"></div>
+      <div class="event-card">
+        <div class="event-name">Reception</div>
+        <div class="event-date">25 January 2027</div>
+        <div class="event-venue">The Fateh Garh, Jaipur</div>
+        <div class="event-time">8:00 PM onwards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story reveal">
+  <svg class="mandala" viewBox="0 0 100 100" aria-hidden="true">
+    <g fill="none" stroke="#e8a33d" stroke-width="1">
+      <circle cx="50" cy="50" r="46"/>
+      <circle cx="50" cy="50" r="34"/>
+      <circle cx="50" cy="50" r="6" fill="#e8a33d" stroke="none"/>
+    </g>
+    <g fill="#c9666a">
+      <ellipse cx="50" cy="12" rx="4" ry="9"/>
+      <ellipse cx="50" cy="88" rx="4" ry="9"/>
+      <ellipse cx="12" cy="50" rx="9" ry="4"/>
+      <ellipse cx="88" cy="50" rx="9" ry="4"/>
+    </g>
+  </svg>
+  <p class="eyebrow">Meet the couple</p>
+  <div class="divider"></div>
+  <h2>Samir &amp; Sahili</h2>
+  <p>What began as a chance introduction at a mutual friend's wedding in Jaipur has, four years later, brought us here. Between long drives, longer conversations, and families who felt like home from the very first meeting, we found our person. We can't wait to celebrate this new beginning with the people who mean the most to us.</p>
+</section>
+
+<!-- RSVP FORM with Google Sheets integration -->
+<section class="rsvp-form-section reveal">
+  <p class="eyebrow">Kindly respond by</p>
+  <h2>JOIN US · RSVP</h2>
+  <p class="subhead">We would be delighted to have you join us. Please let us know if we may look forward to your presence.</p>
+
+  <div class="rsvp-card">
+    <form id="rsvpForm" onsubmit="return handleRSVP(event)">
+      <div class="form-group">
+        <label for="fullName">YOUR NAME</label>
+        <input type="text" id="fullName" placeholder="Full name" required>
+      </div>
+
+      <div class="form-row">
         <div class="form-group">
-          <label for="fullName">YOUR NAME</label>
-          <input type="text" id="fullName" placeholder="Full name" required>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="guests">NUMBER OF GUESTS</label>
-            <select id="guests" required>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5+</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="attending">ATTENDING</label>
-            <select id="attending" required>
-              <option value="All events">All events</option>
-              <option value="Wedding only">Wedding only</option>
-              <option value="Reception only">Reception only</option>
-              <option value="Cannot attend">Cannot attend</option>
-            </select>
-          </div>
+          <label for="guests">NUMBER OF GUESTS</label>
+          <select id="guests" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5+</option>
+          </select>
         </div>
         <div class="form-group">
-          <label for="note">A NOTE FOR THE COUPLE (OPTIONAL)</label>
-          <textarea id="note" placeholder="Your wishes..."></textarea>
+          <label for="attending">ATTENDING</label>
+          <select id="attending" required>
+            <option value="All events">All events</option>
+            <option value="Wedding only">Wedding only</option>
+            <option value="Reception only">Reception only</option>
+            <option value="Cannot attend">Cannot attend</option>
+          </select>
         </div>
-        <button type="submit" class="rsvp-submit-btn" id="rsvpBtn">SEND RSVP</button>
-      </form>
+      </div>
+
+      <div class="form-group">
+        <label for="note">A NOTE FOR THE COUPLE (OPTIONAL)</label>
+        <textarea id="note" placeholder="Your wishes..."></textarea>
+      </div>
+
+      <button type="submit" class="rsvp-submit-btn" id="rsvpBtn">SEND RSVP</button>
+    </form>
+  </div>
+
+  <p class="hashtag">#SamirWedsSahili</p>
+</section>
+
+<section class="know reveal">
+  <h2>Things to know</h2>
+  <div class="know-grid">
+    <div class="know-card">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <h3>Arrival</h3>
+      <p>Please arrive at least 30 minutes before the ceremony. Valet parking is available.</p>
     </div>
-    <p class="hashtag">#SamirWedsSahili</p>
-  </section>
-
-  <!-- THINGS TO KNOW -->
-  <section class="know reveal">
-    <h2>Things to know</h2>
-    <div class="know-grid">
-      <div class="know-card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h3>Arrival</h3>
-        <p>Please arrive at least 30 minutes before the ceremony. Valet parking is available.</p>
-      </div>
-      <div class="know-card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h3>Attire</h3>
-        <p>Celebrate with us in Indian formal or festive wear. Bright colours welcome!</p>
-      </div>
-      <div class="know-card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></div>
-        <h3>Gifts</h3>
-        <p>Your presence is our present. No boxes, please — just your blessing.</p>
-      </div>
-      <div class="know-card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 22v-4M4 12H2M22 12h-2M19.07 4.93l-2.83 2.83M6.34 17.66l-2.83 2.83M17.66 6.34l2.83-2.83M4.93 19.07l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>Photography</h3>
-        <p>We have a team of photographers — feel free to snap, but please avoid blocking the aisle.</p>
-      </div>
+    <div class="know-card">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <h3>Attire</h3>
+      <p>Celebrate with us in Indian formal or festive wear. Bright colours welcome!</p>
     </div>
-  </section>
-
-  <!-- COUNTDOWN -->
-  <section class="countdown reveal">
-    <span class="eyebrow">The countdown begins</span>
-    <h2>Until we say &ldquo;I do&rdquo;</h2>
-    <div class="clock" id="clock">
-      <div><div class="num" id="cd-days">--</div><div class="lbl">Days</div></div>
-      <div><div class="num" id="cd-hours">--</div><div class="lbl">Hours</div></div>
-      <div><div class="num" id="cd-mins">--</div><div class="lbl">Minutes</div></div>
-      <div><div class="num" id="cd-secs">--</div><div class="lbl">Seconds</div></div>
+    <div class="know-card">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></div>
+      <h3>Gifts</h3>
+      <p>Your presence is our present. No boxes, please — just your blessing.</p>
     </div>
-  </section>
+    <div class="know-card">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 22v-4M4 12H2M22 12h-2M19.07 4.93l-2.83 2.83M6.34 17.66l-2.83 2.83M17.66 6.34l2.83-2.83M4.93 19.07l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Photography</h3>
+      <p>We have a team of photographers — feel free to snap, but please avoid blocking the aisle.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <svg class="flame" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 3-2 4-2 7a4 4 0 108 0c0-1-.5-2-1-2 .3 1.5-.5 2.5-1.5 2.5C17 7 14 5.5 12 2z"/><path d="M4 20c0-4 4-6 4-6s4 2 4 6a4 4 0 01-8 0z" opacity="0.6"/></svg>
-    With love, Samir &amp; Sahili
-    <div style="margin-top:6px; opacity:0.6;">Made with ❤️</div>
-  </footer>
+<section class="countdown reveal">
+  <span class="eyebrow">The countdown begins</span>
+  <h2>Until we say &ldquo;I do&rdquo;</h2>
+  <div class="clock" id="clock">
+    <div><div class="num" id="cd-days">--</div><div class="lbl">Days</div></div>
+    <div><div class="num" id="cd-hours">--</div><div class="lbl">Hours</div></div>
+    <div><div class="num" id="cd-mins">--</div><div class="lbl">Minutes</div></div>
+    <div><div class="num" id="cd-secs">--</div><div class="lbl">Seconds</div></div>
+  </div>
+</section>
 
-  <!-- SCRIPTS -->
-  <script>
-    // ===== FALLING STARS =====
-    (function fallingStars() {
-      const canvas = document.getElementById('stars-canvas');
-      const ctx = canvas.getContext('2d');
-      let width, height;
-      const stars = [];
-      const MAX_STARS = 120;
+<footer>
+  <svg class="flame" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 3-2 4-2 7a4 4 0 108 0c0-1-.5-2-1-2 .3 1.5-.5 2.5-1.5 2.5C17 7 14 5.5 12 2z"/><path d="M4 20c0-4 4-6 4-6s4 2 4 6a4 4 0 01-8 0z" opacity="0.6"/></svg>
+  With love, Samir &amp; Sahili
+  <div style="margin-top:6px; opacity:0.6;">Made with ❤️</div>
+</footer>
 
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resize);
-      resize();
+<script>
+  // ===== FALLING STARS =====
+  (function fallingStars() {
+    const canvas = document.getElementById('stars-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const stars = [];
+    const MAX_STARS = 120;
 
-      function createStar(yOffset) {
-        return {
-          x: Math.random() * width,
-          y: yOffset !== undefined ? yOffset : Math.random() * height,
-          size: Math.random() * 2.2 + 0.6,
-          speed: 0.15 + Math.random() * 0.35,
-          opacity: 0.3 + Math.random() * 0.5,
-          twinkleSpeed: 0.008 + Math.random() * 0.02,
-          phase: Math.random() * Math.PI * 2
-        };
-      }
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
 
-      for (let i = 0; i < MAX_STARS; i++) {
-        stars.push(createStar());
-      }
-
-      let time = 0;
-
-      function draw() {
-        time++;
-        ctx.clearRect(0, 0, width, height);
-
-        for (let s of stars) {
-          s.y += s.speed;
-          const twinkle = 0.5 + 0.5 * Math.sin(time * s.twinkleSpeed + s.phase);
-          const alpha = s.opacity * (0.4 + 0.6 * twinkle);
-
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.size * 1.2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(245, 239, 224, ${alpha * 0.15})`;
-          ctx.fill();
-
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(245, 239, 224, ${alpha})`;
-          ctx.fill();
-
-          if (s.y > height + 10) {
-            s.y = -10;
-            s.x = Math.random() * width;
-            s.speed = 0.15 + Math.random() * 0.35;
-          }
-        }
-
-        requestAnimationFrame(draw);
-      }
-
-      draw();
-    })();
-
-    // ===== SCROLL REVEAL =====
-    (function initReveal() {
-      const els = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      els.forEach(el => observer.observe(el));
-    })();
-
-    // ===== COUNTDOWN =====
-    (function startCountdown() {
-      const wedding = new Date('2027-01-24T18:30:00');
-      const daysEl = document.getElementById('cd-days');
-      const hoursEl = document.getElementById('cd-hours');
-      const minsEl = document.getElementById('cd-mins');
-      const secsEl = document.getElementById('cd-secs');
-
-      function update() {
-        const now = new Date();
-        let diff = wedding - now;
-        if (diff < 0) diff = 0;
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const m = Math.floor((diff / (1000 * 60)) % 60);
-        const s = Math.floor((diff / 1000) % 60);
-        daysEl.textContent = d;
-        hoursEl.textContent = String(h).padStart(2, '0');
-        minsEl.textContent = String(m).padStart(2, '0');
-        secsEl.textContent = String(s).padStart(2, '0');
-      }
-      update();
-      setInterval(update, 1000);
-    })();
-
-    // ===== RSVP HANDLER with Google Sheets =====
-    async function handleRSVP(e) {
-      e.preventDefault();
-      const btn = document.getElementById('rsvpBtn');
-      btn.disabled = true;
-      btn.textContent = 'SENDING...';
-
-      const name = document.getElementById('fullName').value.trim();
-      const guests = document.getElementById('guests').value;
-      const attending = document.getElementById('attending').value;
-      const note = document.getElementById('note').value.trim();
-
-      if (!name) {
-        alert('Please enter your full name.');
-        btn.disabled = false;
-        btn.textContent = 'SEND RSVP';
-        return false;
-      }
-
-      // ⬇️⬇️⬇️ REPLACE THIS URL WITH YOUR WEB APP URL ⬇️⬇️⬇️
-      const GOOGLE_SHEETS_URL = https://script.google.com/macros/s/AKfycbzdn7GNOCvxfqqEP_C2ymtZwPjhdLp0Tr-MeY8MXVBgYTFr_4_3xjl_R4BOgLWxj1Lt9A/exec
-      // ⬆️⬆️⬆️ REPLACE THE URL ABOVE ⬆️⬆️⬆️
-
-      try {
-        await fetch(GOOGLE_SHEETS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: name,
-            guests: parseInt(guests),
-            attending: attending,
-            note: note,
-            timestamp: new Date().toISOString()
-          })
-        });
-
-        // Show success message
-        const toast = document.getElementById('toast');
-        const toastTitle = document.getElementById('toastTitle');
-        const toastMessage = document.getElementById('toastMessage');
-        toast.className = 'toast success';
-        toastTitle.textContent = '🎉 Thank You!';
-        toastMessage.textContent = `Your RSVP has been recorded, ${name}! We look forward to celebrating with you.`;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 5000);
-
-        document.getElementById('rsvpForm').reset();
-
-      } catch (error) {
-        console.error('RSVP Error:', error);
-        // Still show success even if there's an error
-        const toast = document.getElementById('toast');
-        const toastTitle = document.getElementById('toastTitle');
-        const toastMessage = document.getElementById('toastMessage');
-        toast.className = 'toast success';
-        toastTitle.textContent = '🎉 Thank You!';
-        toastMessage.textContent = `Your RSVP has been recorded, ${name}! We look forward to celebrating with you.`;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 5000);
-        document.getElementById('rsvpForm').reset();
-      }
-
-      btn.disabled = false;
-      btn.textContent = 'SEND RSVP';
-      return false;
+    function createStar(yOffset) {
+      return {
+        x: Math.random() * width,
+        y: yOffset !== undefined ? yOffset : Math.random() * height,
+        size: Math.random() * 2.2 + 0.6,
+        speed: 0.15 + Math.random() * 0.35,
+        opacity: 0.3 + Math.random() * 0.5,
+        twinkleSpeed: 0.008 + Math.random() * 0.02,
+        phase: Math.random() * Math.PI * 2
+      };
     }
 
-    // ===== MUSIC TOGGLE =====
-    (function initMusic() {
-      const toggleBtn = document.getElementById('music-toggle');
-      let isPlaying = false;
-      let audioContext = null;
-      let gainNode = null;
-      let allIntervals = [];
+    for (let i = 0; i < MAX_STARS; i++) {
+      stars.push(createStar());
+    }
 
-      function stopAllIntervals() {
-        allIntervals.forEach(id => clearInterval(id));
-        allIntervals = [];
+    let time = 0;
+
+    function draw() {
+      time++;
+      ctx.clearRect(0, 0, width, height);
+
+      for (let s of stars) {
+        s.y += s.speed;
+        const twinkle = 0.5 + 0.5 * Math.sin(time * s.twinkleSpeed + s.phase);
+        const alpha = s.opacity * (0.4 + 0.6 * twinkle);
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size * 1.2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(245, 239, 224, ${alpha * 0.15})`;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(245, 239, 224, ${alpha})`;
+        ctx.fill();
+
+        if (s.y > height + 10) {
+          s.y = -10;
+          s.x = Math.random() * width;
+          s.speed = 0.15 + Math.random() * 0.35;
+        }
       }
 
-      function playIndianMelody() {
-        if (audioContext === null) {
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  })();
+
+  // ===== BACKGROUND MUSIC =====
+  (function initMusic() {
+    const toggleBtn = document.getElementById('music-toggle');
+    let isPlaying = false;
+    let audioContext = null;
+    let gainNode = null;
+    let allIntervals = [];
+
+    function stopAllIntervals() {
+      allIntervals.forEach(id => clearInterval(id));
+      allIntervals = [];
+    }
+
+    function playIndianMelody() {
+      if (audioContext === null) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        gainNode = audioContext.createGain();
+        gainNode.gain.value = 0.12;
+        gainNode.connect(audioContext.destination);
+      }
+
+      stopAllIntervals();
+
+      const scale = [220, 247, 277, 294, 330, 370, 415, 440];
+      const ragaNotes = [0, 1, 3, 5, 6, 3, 1, 0, 2, 4, 6, 7, 6, 4, 2, 0];
+      let noteIndex = 0;
+
+      function playSitarNote() {
+        if (!isPlaying) return;
+        const now = audioContext.currentTime;
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        osc.type = 'sawtooth';
+        const freq = scale[ragaNotes[noteIndex % ragaNotes.length]];
+        osc.frequency.setValueAtTime(freq, now);
+        const vibrato = audioContext.createOscillator();
+        vibrato.frequency.value = 5;
+        vibrato.connect(osc.frequency);
+        vibrato.start(now);
+        vibrato.stop(now + 0.6);
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+        osc.connect(gain);
+        gain.connect(gainNode);
+        osc.start(now);
+        osc.stop(now + 0.6);
+        const harmonic = audioContext.createOscillator();
+        const hGain = audioContext.createGain();
+        harmonic.type = 'sine';
+        harmonic.frequency.value = freq * 2;
+        hGain.gain.setValueAtTime(0.015, now);
+        hGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+        harmonic.connect(hGain);
+        hGain.connect(gainNode);
+        harmonic.start(now);
+        harmonic.stop(now + 0.5);
+        noteIndex = (noteIndex + 1) % ragaNotes.length;
+      }
+
+      function playMelodyPattern() {
+        if (!isPlaying) return;
+        for (let i = 0; i < 4; i++) {
+          setTimeout(() => {
+            if (isPlaying) playSitarNote();
+          }, i * 250);
+        }
+      }
+
+      function playTabla() {
+        if (!isPlaying) return;
+        const now = audioContext.currentTime;
+        const bufferSize = audioContext.sampleRate * 0.08;
+        const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
+        }
+        const tabla = audioContext.createBufferSource();
+        tabla.buffer = buffer;
+        const tGain = audioContext.createGain();
+        tGain.gain.setValueAtTime(0.04, now);
+        tGain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+        const pitch = audioContext.createBiquadFilter();
+        pitch.type = 'bandpass';
+        pitch.frequency.value = 600 + Math.random() * 400;
+        pitch.Q.value = 1.5;
+        tabla.connect(pitch);
+        pitch.connect(tGain);
+        tGain.connect(gainNode);
+        tabla.start(now);
+        tabla.stop(now + 0.08);
+        setTimeout(() => {
+          if (!isPlaying) return;
+          const t2 = audioContext.createBufferSource();
+          t2.buffer = buffer;
+          const g2 = audioContext.createGain();
+          g2.gain.setValueAtTime(0.025, audioContext.currentTime);
+          g2.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.06);
+          const p2 = audioContext.createBiquadFilter();
+          p2.type = 'bandpass';
+          p2.frequency.value = 800;
+          p2.Q.value = 1.2;
+          t2.connect(p2);
+          p2.connect(g2);
+          g2.connect(gainNode);
+          t2.start(audioContext.currentTime);
+          t2.stop(audioContext.currentTime + 0.06);
+        }, 80);
+      }
+
+      const melodyInterval = setInterval(() => {
+        if (isPlaying) playMelodyPattern();
+      }, 2500);
+
+      const tablaInterval = setInterval(() => {
+        if (isPlaying) playTabla();
+      }, 1200);
+
+      const accentInterval = setInterval(() => {
+        if (isPlaying) {
+          setTimeout(() => playTabla(), 600);
+        }
+      }, 2400);
+
+      allIntervals.push(melodyInterval, tablaInterval, accentInterval);
+
+      setTimeout(() => { if (isPlaying) playMelodyPattern(); }, 100);
+      setTimeout(() => { if (isPlaying) playTabla(); }, 300);
+
+      function startDrone() {
+        if (!isPlaying) return;
+        const now = audioContext.currentTime;
+        const droneOsc = audioContext.createOscillator();
+        const droneGain = audioContext.createGain();
+        droneOsc.type = 'sine';
+        droneOsc.frequency.value = 110;
+        droneGain.gain.setValueAtTime(0.025, now);
+        droneGain.gain.exponentialRampToValueAtTime(0.001, now + 2.5);
+        droneOsc.connect(droneGain);
+        droneGain.connect(gainNode);
+        droneOsc.start(now);
+        droneOsc.stop(now + 2.5);
+      }
+
+      const droneInterval = setInterval(() => {
+        if (isPlaying) startDrone();
+      }, 2500);
+      allIntervals.push(droneInterval);
+
+      setTimeout(startDrone, 50);
+    }
+
+    function toggleMusic() {
+      if (!isPlaying) {
+        if (audioContext && audioContext.state === 'suspended') {
+          audioContext.resume();
+        }
+        if (!audioContext) {
           audioContext = new (window.AudioContext || window.webkitAudioContext)();
           gainNode = audioContext.createGain();
           gainNode.gain.value = 0.12;
           gainNode.connect(audioContext.destination);
         }
-
+        isPlaying = true;
+        toggleBtn.classList.remove('muted');
+        toggleBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`;
+        playIndianMelody();
+      } else {
+        isPlaying = false;
+        toggleBtn.classList.add('muted');
+        toggleBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`;
         stopAllIntervals();
-
-        const scale = [220, 247, 277, 294, 330, 370, 415, 440];
-        const ragaNotes = [0, 1, 3, 5, 6, 3, 1, 0, 2, 4, 6, 7, 6, 4, 2, 0];
-        let noteIndex = 0;
-
-        function playSitarNote() {
-          if (!isPlaying) return;
-          const now = audioContext.currentTime;
-          const osc = audioContext.createOscillator();
-          const gain = audioContext.createGain();
-          osc.type = 'sawtooth';
-          const freq = scale[ragaNotes[noteIndex % ragaNotes.length]];
-          osc.frequency.setValueAtTime(freq, now);
-          const vibrato = audioContext.createOscillator();
-          vibrato.frequency.value = 5;
-          vibrato.connect(osc.frequency);
-          vibrato.start(now);
-          vibrato.stop(now + 0.6);
-          gain.gain.setValueAtTime(0.06, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
-          osc.connect(gain);
-          gain.connect(gainNode);
-          osc.start(now);
-          osc.stop(now + 0.6);
-          const harmonic = audioContext.createOscillator();
-          const hGain = audioContext.createGain();
-          harmonic.type = 'sine';
-          harmonic.frequency.value = freq * 2;
-          hGain.gain.setValueAtTime(0.015, now);
-          hGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-          harmonic.connect(hGain);
-          hGain.connect(gainNode);
-          harmonic.start(now);
-          harmonic.stop(now + 0.5);
-          noteIndex = (noteIndex + 1) % ragaNotes.length;
-        }
-
-        function playMelodyPattern() {
-          if (!isPlaying) return;
-          for (let i = 0; i < 4; i++) {
-            setTimeout(() => {
-              if (isPlaying) playSitarNote();
-            }, i * 250);
-          }
-        }
-
-        function playTabla() {
-          if (!isPlaying) return;
-          const now = audioContext.currentTime;
-          const bufferSize = audioContext.sampleRate * 0.08;
-          const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
-          const data = buffer.getChannelData(0);
-          for (let i = 0; i < bufferSize; i++) {
-            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
-          }
-          const tabla = audioContext.createBufferSource();
-          tabla.buffer = buffer;
-          const tGain = audioContext.createGain();
-          tGain.gain.setValueAtTime(0.04, now);
-          tGain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-          const pitch = audioContext.createBiquadFilter();
-          pitch.type = 'bandpass';
-          pitch.frequency.value = 600 + Math.random() * 400;
-          pitch.Q.value = 1.5;
-          tabla.connect(pitch);
-          pitch.connect(tGain);
-          tGain.connect(gainNode);
-          tabla.start(now);
-          tabla.stop(now + 0.08);
-          setTimeout(() => {
-            if (!isPlaying) return;
-            const t2 = audioContext.createBufferSource();
-            t2.buffer = buffer;
-            const g2 = audioContext.createGain();
-            g2.gain.setValueAtTime(0.025, audioContext.currentTime);
-            g2.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.06);
-            const p2 = audioContext.createBiquadFilter();
-            p2.type = 'bandpass';
-            p2.frequency.value = 800;
-            p2.Q.value = 1.2;
-            t2.connect(p2);
-            p2.connect(g2);
-            g2.connect(gainNode);
-            t2.start(audioContext.currentTime);
-            t2.stop(audioContext.currentTime + 0.06);
-          }, 80);
-        }
-
-        const melodyInterval = setInterval(() => {
-          if (isPlaying) playMelodyPattern();
-        }, 2500);
-
-        const tablaInterval = setInterval(() => {
-          if (isPlaying) playTabla();
-        }, 1200);
-
-        const accentInterval = setInterval(() => {
-          if (isPlaying) {
-            setTimeout(() => playTabla(), 600);
-          }
-        }, 2400);
-
-        allIntervals.push(melodyInterval, tablaInterval, accentInterval);
-
-        setTimeout(() => { if (isPlaying) playMelodyPattern(); }, 100);
-        setTimeout(() => { if (isPlaying) playTabla(); }, 300);
-
-        function startDrone() {
-          if (!isPlaying) return;
-          const now = audioContext.currentTime;
-          const droneOsc = audioContext.createOscillator();
-          const droneGain = audioContext.createGain();
-          droneOsc.type = 'sine';
-          droneOsc.frequency.value = 110;
-          droneGain.gain.setValueAtTime(0.025, now);
-          droneGain.gain.exponentialRampToValueAtTime(0.001, now + 2.5);
-          droneOsc.connect(droneGain);
-          droneGain.connect(gainNode);
-          droneOsc.start(now);
-          droneOsc.stop(now + 2.5);
-        }
-
-        const droneInterval = setInterval(() => {
-          if (isPlaying) startDrone();
-        }, 2500);
-        allIntervals.push(droneInterval);
-
-        setTimeout(startDrone, 50);
       }
+    }
 
-      function toggleMusic() {
-        if (!isPlaying) {
-          if (audioContext && audioContext.state === 'suspended') {
-            audioContext.resume();
-          }
-          if (!audioContext) {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            gainNode = audioContext.createGain();
-            gainNode.gain.value = 0.12;
-            gainNode.connect(audioContext.destination);
-          }
-          isPlaying = true;
-          toggleBtn.classList.remove('muted');
-          toggleBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`;
-          playIndianMelody();
-        } else {
-          isPlaying = false;
-          toggleBtn.classList.add('muted');
-          toggleBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`;
-          stopAllIntervals();
-        }
+    toggleBtn.addEventListener('click', toggleMusic);
+
+    const autoPlay = () => {
+      if (!isPlaying) {
+        toggleMusic();
       }
+      document.removeEventListener('click', autoPlay);
+      document.removeEventListener('touchstart', autoPlay);
+      document.removeEventListener('scroll', autoPlay);
+    };
 
-      toggleBtn.addEventListener('click', toggleMusic);
+    document.addEventListener('click', autoPlay);
+    document.addEventListener('touchstart', autoPlay);
+    document.addEventListener('scroll', autoPlay);
+  })();
 
-      const autoPlay = () => {
-        if (!isPlaying) {
-          toggleMusic();
+  // ===== SCROLL REVEAL =====
+  (function initReveal() {
+    const els = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
         }
-        document.removeEventListener('click', autoPlay);
-        document.removeEventListener('touchstart', autoPlay);
-        document.removeEventListener('scroll', autoPlay);
-      };
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => observer.observe(el));
+  })();
 
-      document.addEventListener('click', autoPlay);
-      document.addEventListener('touchstart', autoPlay);
-      document.addEventListener('scroll', autoPlay);
-    })();
-  </script>
+  // ===== COUNTDOWN =====
+  (function startCountdown() {
+    const wedding = new Date('2027-01-24T18:30:00');
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-mins');
+    const secsEl = document.getElementById('cd-secs');
+
+    function update() {
+      const now = new Date();
+      let diff = wedding - now;
+      if (diff < 0) diff = 0;
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      daysEl.textContent = d;
+      hoursEl.textContent = String(h).padStart(2, '0');
+      minsEl.textContent = String(m).padStart(2, '0');
+      secsEl.textContent = String(s).padStart(2, '0');
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+
+  // ===== TOAST NOTIFICATION =====
+  function showToast(title, message, type = 'success') {
+    const toast = document.getElementById('toast');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+    toast.className = `toast ${type}`;
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 5000);
+  }
+
+  // ===== RSVP HANDLER — submits straight to Google Sheets =====
+  // Your Apps Script Web App URL (deployed from the Google Sheet).
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzdn7GNOCvxfqqEP_C2ymtZwPjhdLp0Tr-MeY8MXVBgYTFr_4_3xjl_R4BOgLWxj1Lt9A/exec";
+
+  async function handleRSVP(e) {
+    e.preventDefault();
+    const btn = document.getElementById('rsvpBtn');
+    btn.disabled = true;
+    btn.textContent = 'SENDING...';
+
+    const name = document.getElementById('fullName').value.trim();
+    const guests = document.getElementById('guests').value;
+    const attending = document.getElementById('attending').value;
+    const note = document.getElementById('note').value.trim();
+
+    if (!name) {
+      showToast('Error', 'Please enter your full name.', 'error');
+      btn.disabled = false;
+      btn.textContent = 'SEND RSVP';
+      return false;
+    }
+
+    try {
+      // Apps Script web apps don't return CORS headers on a normal fetch,
+      // so this goes out as a no-cors POST. It still reaches the sheet —
+      // we just can't read a real success/failure response back, so the
+      // confirmation below is optimistic (assumes it got through).
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          name,
+          guests,
+          attending,
+          note,
+          timestamp: new Date().toISOString()
+        })
+      });
+
+      showToast('🎉 Success!', 'Your RSVP has been recorded. We look forward to celebrating with you!', 'success');
+      document.getElementById('rsvpForm').reset();
+    } catch (error) {
+      console.error('RSVP Error:', error);
+      showToast('⚠️ Error', 'Network error. Please check your connection and try again.', 'error');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'SEND RSVP';
+    return false;
+  }
+</script>
 
 </body>
 </html>
